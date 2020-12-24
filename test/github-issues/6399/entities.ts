@@ -23,7 +23,10 @@ export class Comment {
     @JoinColumn({
         name: "postId",
     })
-    post?: Post;
+    // Correct typing here yields ReferenceError:
+    // https://github.com/typeorm/typeorm/issues/4052
+    // It is not required for a test overall.
+    post?: any;
 
 }
 
